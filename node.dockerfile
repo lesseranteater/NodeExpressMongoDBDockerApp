@@ -22,8 +22,11 @@ FROM        node:16.13.1-alpine
 
 LABEL       author="Dan Wahlin"
 
+ARG         buildversion
+
 ENV         NODE_ENV=production
 ENV         PORT=3000
+ENV         build=$buildversion
 
 WORKDIR     /var/www
 COPY        package.json package-lock.json ./
@@ -36,5 +39,7 @@ RUN         npm install
 # Copy everything except what is in .dockerignore
 COPY        . ./
 EXPOSE      $PORT
+
+RUN         echo "Build version: $build"
 
 ENTRYPOINT  ["npm", "start"]

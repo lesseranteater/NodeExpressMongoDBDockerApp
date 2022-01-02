@@ -9,6 +9,7 @@ services:
       dockerfile: node.dockerfile
       args:
         PACKAGES: "nano wget curl"
+        buildversion: 1
     ports:
       - "3000:3000"
     networks:
@@ -18,6 +19,7 @@ services:
     environment:
       - NODE_ENV=production
       - APP_VERSION=1.0
+      - build = 1
     depends_on:
       - mongodb
 
