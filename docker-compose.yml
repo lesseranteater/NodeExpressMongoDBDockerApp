@@ -19,9 +19,9 @@ services:
     environment:
       - NODE_ENV=production
       - APP_VERSION=1.0
-    depends_on: 
+    depends_on:
       - mongodb
-      
+
   mongodb:
     container_name: mongodb
     image: mongo
